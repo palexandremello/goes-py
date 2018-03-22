@@ -36,7 +36,7 @@ But if you don't want to build the cloned repository, just use the pip.
  
 First open a file with the filename **firstexample.py** and put the next command on the top.
 
-> **from goespy import ABI_Downloader**
+> **from goespy.Downloader import ABI_Downloader**
 
 You will import the **ABI_Downloader** function, and the **ABI_Downloder** needs 7 arguments to be used:
 
