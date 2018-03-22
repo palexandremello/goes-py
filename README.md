@@ -26,7 +26,7 @@ But if you don't want to build the cloned repository, just use the pip.
  
   With the pip:
   
-  > **pip install goes-py**
+  > **pip install goespy**
 
  ## Examples how to use:
 
@@ -34,7 +34,7 @@ But if you don't want to build the cloned repository, just use the pip.
 
  ### 1. HOWTO get from ABI-sensors:
  
-> **from goes-py import ABI_Downloader**
+> **from goespy import ABI_Downloader**
 
 The ABI_Downloder needs 7 arguments to be used:
 
@@ -66,7 +66,7 @@ After the download be complete, check your home directory and your dataset will 
 
  ### 2. HOWTO get from GLM total lightning:
  
-> **from goes-py import GLM_Downloader**
+> **from goespy import GLM_Downloader**
 
 For the GLM you can a same example on the **examples/** in the source directory.
 
