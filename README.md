@@ -42,5 +42,5 @@ If you want you can run two examples on the folder **examples/** on the source d
 
 
  ## Contributors: 
- Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin (** <a href="https://wp.ufpel.edu.br/cppmet/">CPMET</a>**) for the place and computers necessary to work on this project 
+ Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin ( <a href="https://wp.ufpel.edu.br/cppmet/">CPMET</a>) for the place and computers necessary to work on this project 
 
