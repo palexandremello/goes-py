@@ -1,5 +1,5 @@
 # goes-py 
-GoesDownloader
+
  It's a free Python package to acess and get the dataset from GOES satellite next generation on Amazon Web Service(AWS)
  
  For more details, look at the online documentation (soon)
