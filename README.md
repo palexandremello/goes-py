@@ -34,11 +34,13 @@ But if you don't want to build the cloned repository, just use the pip.
 
  ### 1. HOWTO get from ABI-sensors:
  
+First open a file with the name firstexample.py and put the next command on the top.
+
 > **from goespy import ABI_Downloader**
 
-The ABI_Downloder needs 7 arguments to be used:
+You will import the **ABI_Downloader** function, and the ABI_Downloder needs 7 arguments to be used:
 
->ABI_Downloader(bucket,year,month,day,hour,product,channel)
+> **ABI_Downloader(bucket,year,month,day,hour,product,channel)**
 
 >bucket: name of reposity from GOES on the Amazon Web Service (AWS)
 
@@ -54,13 +56,27 @@ The ABI_Downloder needs 7 arguments to be used:
 
 >channel: channels of your choose, can be C01 at C16
 
-So:
->bucket = 'noaa-goes16', year='2018', month='03', day='22', hour='12', product='ABI-L2-CMIPF', channel='C13'
+Below do the initialization for these variable in your firstexample.py :
 
-Now, you can call the function:
+>  bucket = 'noaa-goes16'
+
+>  year='2018'
+
+> month='03'
+
+> day='22'
+
+> hour='12'
+
+> product='ABI-L2-CMIPF'
+
+> channel='C13'
+
+Now, you can call the function, so write it on your firstexample.py:
 > ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)
 
-And wait the download be complete (you can see the progress)
+
+And run the script > python firstexample.py wait the download be complete (you can see the progress)
 
 After the download finished,, check your home directory and your dataset will be in a directory has the name of  the satellite used on bucket variable. In this case: **goes16**.
 
