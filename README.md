@@ -34,11 +34,11 @@ But if you don't want to build the cloned repository, just use the pip.
 
  ### 1. HOWTO get from ABI-sensors:
  
-First open a file with the name firstexample.py and put the next command on the top.
+First open a file with the filename **firstexample.py** and put the next command on the top.
 
 > **from goespy import ABI_Downloader**
 
-You will import the **ABI_Downloader** function, and the ABI_Downloder needs 7 arguments to be used:
+You will import the **ABI_Downloader** function, and the **ABI_Downloder** needs 7 arguments to be used:
 
 > **ABI_Downloader(bucket,year,month,day,hour,product,channel)**
 
@@ -72,11 +72,15 @@ Below do the initialization for these variable in your firstexample.py :
 
 > channel='C13'
 
-Now, you can call the function, so write it on your firstexample.py:
+Now, you can call the function, so write it on your **firstexample.py**:
 > ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)
 
 
-And run the script > python firstexample.py wait the download be complete (you can see the progress)
+And run the script 
+
+> python firstexample.py 
+
+wait the download be complete (you can see the progress)
 
 After the download finished,, check your home directory and your dataset will be in a directory has the name of  the satellite used on bucket variable. In this case: **goes16**.
 
