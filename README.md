@@ -18,23 +18,31 @@
 
  And install manually
 
->**pip install -e .**
+>**python setup.py install**
 
-But if you don't want to build the cloned repository, just use the pip.
+But if you don't want to build the cloned repository, just use the pip on terminal.
 
  ### 2. Pip Install: 
  
-  With the pip:
+  Acess a terminal and use the command **pip**:
   
   > **pip install goespy**
 
+ ### 3. Update the package:
+ 
+ When the package is updated, you need use that command on your terminal:
+ 
+ > **pip install --upgrade goespy** 
+ 
+ Or if you want build again the new source code
+ 
  ## Examples how to use:
 
  This package has two main function, can be used to get dataset from GOES:
 
- ### 1. HOWTO get from ABI-sensors:
+ ### 1. HOW TO get from ABI-sensors:
  
-First open a file with the filename **firstexample.py** and put the next command on the top.
+First open a file with the filename **firstexample.py** and put the next command on header's script.
 
 > **from goespy.Downloader import ABI_Downloader**
 
@@ -72,9 +80,8 @@ Below do the initialization for these variable in your firstexample.py :
 
 > channel='C13'
 
-Now, you can call the function, so write it on your **firstexample.py**:
+Now, you can call the function, so write it on your **firstexample.py** after you initialized the variables above:
 > ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)
-
 
 And run the script 
 
@@ -84,7 +91,7 @@ wait for download to complete (you can see the progress)
 
 After the download to finishes, check your home directory (**Linux and mac OS X users**) and your dataset will be in a directory has the same name from the satellite used on bucket variable. In this case: **goes16**.
 
- ### 2. HOWTO get from GLM total lightning:
+ ### 2. HOW TO get from GLM total lightning:
  
 > **from goespy import GLM_Downloader**
 
