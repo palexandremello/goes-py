@@ -13,24 +13,23 @@
  >**git clone git@github.com:palexandremello/goes-py.git**
 
  Go to folder:
->**cd Goes-Py** 
+
+>**cd goes-py** 
 
  And install manually
 
->**python setup.py install**
+>**pip install -e .**
 
  ### 2. Pip Install: 
  
-  You can install using the pip:
- 
-> **pip install goes-py**
-
-### 3. Using Anaconda
+  With the pip:
+  
+  > **pip install goes-py**
 
  ## Examples how to use:
- 
- In the python you can import the package using:
- 
+
+ This package has two main function, can be used to get dataset from GOES:
+
  ### 1. To use ABI-sensors:
  
 > **from goes-py import ABI_Downloader**
@@ -39,10 +38,8 @@
  
 > **from goes-py import GLM_Downloader**
 
- If you want you can run two examples on the folder **test/** on the source directory:
-
- And you will be able to download the dataset, to more details you can use the examples on the folder cloned.
+If you want you can run two examples on the folder **examples/** on the source directory:
 
 
- ## Contrib: 
- For the Centro de Pesquisas Meteorológicas (CPMET) for the place and computers necessary to working on this project
+ ## Contributors: 
+ Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin (**CPMET**) for the place and computers necessary to work on this project 
