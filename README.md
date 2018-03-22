@@ -4,11 +4,13 @@ GoesDownloader
  
  For more details, look at the online documentation (soon)
 
-## HOWTO-Install
+## HOWTO-Install 
  
- Feel free to download or clone the source code:
+ ### 1. Source code:
  
- >**git@github.com:palexandremello/goes-py.git**
+ First clone this repository:
+
+ >**git clone git@github.com:palexandremello/goes-py.git**
 
  Go to folder:
 >**cd Goes-Py** 
@@ -17,9 +19,13 @@ GoesDownloader
 
 >**python setup.py install**
 
- Or you can install using the pip:
+ ### 2. Pip Install: 
+ 
+  You can install using the pip:
  
 > **pip install goes-py**
+
+### 3. Using Anaconda
 
  ## Examples how to use:
  
