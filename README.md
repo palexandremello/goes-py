@@ -41,11 +41,17 @@ The ABI_Downloder needs 7 arguments to be used:
 >ABI_Downloader(bucket,year,month,day,hour,product,channel)
 
 >bucket: name of reposity from GOES on the Amazon Web Service (AWS)
+
 >year: year string 
+
 >month: month string 
+
 >day: day string
+
 >hour: hour string, but it's need be UTC coordinate not local time
+
 >product: "ABI-sensors" for this example we will use FullDisk L2
+
 >channel: channels of your choose, can be C01 at C16
 
 So:
