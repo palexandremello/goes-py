@@ -1,13 +1,13 @@
-""" This example we will aproach about get the dataset from ABI-Sensors with the goesdownloader """
-""" First you need import the library necessary to Download goesdownloader for the ABI-Sensors"""
-from goesdownloader.Downloader import ABI_Downloader ## goesdownloader.Downloader it's where the main function
+""" This example we will aproach about get the dataset from ABI-Sensors with the goespy """
+""" First you need import the library necessary to Download goespy for the ABI-Sensors"""
+from goespy.Downloader import ABI_Downloader ## goespy.Downloader it's where the main function
                                                      ## to download the products by GOES in the AWS
-                                                     ## in the goesdownloader.Downloader we have
+                                                     ## in the goespy.Downloader we have
                                                      # ABI_Downloader = ABI-Sensors 
                                                      # GLM_Downloader = Discharge eletric product
                                                      # So if you need the GLM_Downloader, just change
                                                      # the ABI_Downloader to GLM_Downloader or import both 
-                                                     # example: from goesdownloader.Downloader import GLM_Downloader
+                                                     # example: from goespy.Downloader import GLM_Downloader
 ### to use ABI_Downloader, you need 7 arguments:
 ### to see more information about ABI_Downloder, use help(ABI_Downloader) 
 

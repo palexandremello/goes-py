@@ -8,7 +8,7 @@
  
  ### 1. Source code:
  
- First clone this repository:
+ If you want to build this package, just clone this repository:
 
  >**git clone git@github.com:palexandremello/goes-py.git**
 
@@ -19,6 +19,8 @@
  And install manually
 
 >**pip install -e .**
+
+But if you don't want to build the cloned repository, just use the pip.
 
  ### 2. Pip Install: 
  
@@ -34,12 +36,31 @@
  
 > **from goes-py import ABI_Downloader**
 
+The ABI_Downloder needs 7 arguments to be used:
+
+>ABI_Downloader(bucket,year,month,day,hour,product,channel)
+
+>bucket: name of reposity from GOES on the Amazon Web Service (AWS)
+>year: year string 
+>month: month string 
+>day: day string
+>hour: hour string, but it's need be UTC coordinate not local time
+>product: "ABI-sensors" for this example we will use FullDisk L2
+>channel: channels of your choose, can be C01 at C16
+
+So:
+>bucket = 'noaa-goes16', year='2018', month='03', day='22', hour='12', product='ABI-L2-CMIPF', channel='C13'
+
+Now, you can call the function:
+> ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)
+
+And want the program finish the download.
+
  ### 2. To GLM total lightning:
  
 > **from goes-py import GLM_Downloader**
 
-If you want you can run two examples on the folder **examples/** on the source directory:
-
+For the GLM you can a same example on the **examples/** in the source directory.
 
  ## Contributors: 
  Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin ( <a href="https://wp.ufpel.edu.br/cppmet/">CPMET</a>) for the place and computers necessary to work on this project 

@@ -1,13 +1,13 @@
-""" This example we will aproach about get the dataset from GLM-L2-LCFA total lightning (intra to cloud and ground to cloud) with the goesdownloader """
-""" First you need import the library necessary to Download goesdownloader for the GLM-LCFA"""
-from goesdownloader.Downloader import GLM_Downloader ## goesdownloader.Downloader it's where the main function
+""" This example we will aproach about get the dataset from GLM-L2-LCFA total lightning (intra to cloud and ground to cloud) with the goespy """
+""" First you need import the library necessary to Download goespy for the GLM-LCFA"""
+from goespy.Downloader import GLM_Downloader ## goespy.Downloader it's where the main function
                                                      ## to download the products by GOES in the AWS
-                                                     ## in the goesdownloader.Downloader we have
+                                                     ## in the goespy.Downloader we have
                                                      # ABI_Downloader = ABI-Sensors 
                                                      # GLM_Downloader = Total Lightning product
                                                      # So if you need the ABI_Downloader, just change
                                                      # the GLM_Downloader to ABI_Downloader or import both 
-                                                     # example: from goesdownloader.Downloader import ABI_Downloader
+                                                     # example: from goespy.Downloader import ABI_Downloader
 ### to use GLM_Downloader, you need 7 arguments:
 ### to see more information about GLM_Downloader, use help(GLM_Downloader) 
 
