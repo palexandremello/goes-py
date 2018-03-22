@@ -31,13 +31,15 @@ GoesDownloader
  
  In the python you can import the package using:
  
- ### To use ABI-sensors:
+ ### 1. To use ABI-sensors:
  
 > **from goes-py import ABI_Downloader**
 
- ### To GLM total lightning:
+ ### 2. To GLM total lightning:
  
 > **from goes-py import GLM_Downloader**
+
+ If you want you can run two examples on the folder **test/** on the source directory:
 
  And you will be able to download the dataset, to more details you can use the examples on the folder cloned.
 
