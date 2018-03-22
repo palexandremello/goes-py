@@ -60,7 +60,9 @@ So:
 Now, you can call the function:
 > ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)
 
-And want the program finish the download.
+And wait the download be complete (you can see the progress)
+
+After the download be complete, check your home directory and your dataset will be in a directory has the name of  the satellite used on bucket variable. In this case: **goes16**.
 
  ### 2. To GLM total lightning:
  
