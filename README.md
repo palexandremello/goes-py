@@ -68,7 +68,7 @@ After the download finished,, check your home directory and your dataset will be
  
 > **from goespy import GLM_Downloader**
 
-For the GLM you can a same example on the **examples/** in the source directory.
+For the GLM use an especific example on the **examples/** in the source directory.
 
  ## Contributors: 
  Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin ( <a href="https://wp.ufpel.edu.br/cppmet/">CPMET</a>) for the place and computers necessary to work on this project 
