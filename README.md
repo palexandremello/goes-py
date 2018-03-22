@@ -10,7 +10,7 @@
  
  If you want to build this package, just clone this repository:
 
- >**git clone git@github.com:palexandremello/goes-py.git**
+ >**git clone https://github.com/palexandremello/goes-py.git**
 
  Go to folder:
 
