@@ -13,7 +13,7 @@ GoesDownloader
  Go to folder:
 >**cd Goes-Py** 
 
- ### And install manually
+ And install manually
 
 >**python setup.py install**
 
