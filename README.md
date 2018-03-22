@@ -32,7 +32,7 @@ But if you don't want to build the cloned repository, just use the pip.
 
  This package has two main function, can be used to get dataset from GOES:
 
- ### 1. To use ABI-sensors:
+ ### 1. HOWTO get from ABI-sensors:
  
 > **from goes-py import ABI_Downloader**
 
@@ -64,7 +64,7 @@ And wait the download be complete (you can see the progress)
 
 After the download be complete, check your home directory and your dataset will be in a directory has the name of  the satellite used on bucket variable. In this case: **goes16**.
 
- ### 2. To GLM total lightning:
+ ### 2. HOWTO get from GLM total lightning:
  
 > **from goes-py import GLM_Downloader**
 
