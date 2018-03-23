@@ -10,7 +10,7 @@
  
  If you want to build this package, just clone this repository:
 
- >**git clone git@github.com:palexandremello/goes-py.git**
+ >**git clone https://github.com/palexandremello/goes-py.git**
 
  Go to folder:
 
@@ -34,11 +34,13 @@ But if you don't want to build the cloned repository, just use the pip.
 
  ### 1. HOWTO get from ABI-sensors:
  
-> **from goespy import ABI_Downloader**
+First open a file with the filename **firstexample.py** and put the next command on the top.
 
-The ABI_Downloder needs 7 arguments to be used:
+> **from goespy.Downloader import ABI_Downloader**
 
->ABI_Downloader(bucket,year,month,day,hour,product,channel)
+You will import the **ABI_Downloader** function, and the **ABI_Downloder** needs 7 arguments to be used:
+
+> **ABI_Downloader(bucket,year,month,day,hour,product,channel)**
 
 >bucket: name of reposity from GOES on the Amazon Web Service (AWS)
 
@@ -54,15 +56,33 @@ The ABI_Downloder needs 7 arguments to be used:
 
 >channel: channels of your choose, can be C01 at C16
 
-So:
->bucket = 'noaa-goes16', year='2018', month='03', day='22', hour='12', product='ABI-L2-CMIPF', channel='C13'
+Below do the initialization for these variable in your firstexample.py :
 
-Now, you can call the function:
+>  bucket = 'noaa-goes16'
+
+>  year='2018'
+
+> month='03'
+
+> day='22'
+
+> hour='12'
+
+> product='ABI-L2-CMIPF'
+
+> channel='C13'
+
+Now, you can call the function, so write it on your **firstexample.py**:
 > ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)
 
-And wait the download be complete (you can see the progress)
 
-After the download finished,, check your home directory and your dataset will be in a directory has the name of  the satellite used on bucket variable. In this case: **goes16**.
+And run the script 
+
+> python firstexample.py 
+
+wait for download to complete (you can see the progress)
+
+After the download to finishes, check your home directory (**Linux and mac OS X users**) and your dataset will be in a directory has the same name from the satellite used on bucket variable. In this case: **goes16**.
 
  ### 2. HOWTO get from GLM total lightning:
  

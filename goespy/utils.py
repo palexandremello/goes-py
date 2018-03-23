@@ -21,6 +21,8 @@ def daytoJulian(year,month,day):
     
     return julianDay
 
+
+    
 def __isAList(year, month, day, product, hour, channel=None, julianDay=None):
     """ All these variables are strings. This function will "convert" every single string on a List of string, 
     to be use in the Foor loops: If all the arguments are List of string, the function will not convert to List.
@@ -48,14 +50,16 @@ def __isAList(year, month, day, product, hour, channel=None, julianDay=None):
 
     if not isinstance(product, (list, )):
         product = [product]
-
-    if julianDay  == None:
-        return year, month, day, product, hour
+    
+    if not isinstance(julianDay, (list, )):
+        julianDay = daytoJulian(year,month,day)
+    if channel  == None:
+        return year, month, day, product, hour, julianDay
     else:
-        if not isinstance(julianDay, (list, )):
-            julianDay = daytoJulian(year,month,day)
-
-    return year, month, day, product, hour, julianDay
+        if not isinstance(channel, (list, )):
+            channel = [channel]
+        
+        return year, month, day,product, hour, channel, julianDay
 
 class ProgressPercentage(object):
     def __init__(self, filename,objectSize):
@@ -72,8 +76,12 @@ class ProgressPercentage(object):
         with self._lock:
             self._seen_so_far += bytes_amount
             percentage = round((self._seen_so_far / self._size) * 100,2)
-            sys.stdout.write("\r%s  %s / %s  (%.2f%%)" % (self._filename, str(float(self._seen_so_far/1e6)),
-                                             str(float(self._size/1e6)), percentage ) )
+            sys.stdout.write('\r{0}: [{1}] {2}%  {3} MB/{4} MB'.format(self._filename, '#'*int((percentage/10)), int(percentage),
+                                                                           self._seen_so_far/1e6, self._size/1e6))
+            #sys.stdout.write("\r%s  %s MB | %s MB  (%.2f%%)" % (self._filename, str(float(self._seen_so_far/1e6)),
+            #                                 str(float(self._size/1e6)), percentage) )
+            
+            
             sys.stdout.flush()
 
 

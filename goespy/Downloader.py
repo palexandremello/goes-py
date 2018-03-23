@@ -27,8 +27,8 @@ def ABI_Downloader(bucket, year, month, day, hour, product, channel):
         config=botocore.client.Config(signature_version=botocore.UNSIGNED))
     goes16 = s3.Bucket(bucket)
 
-    year, month, day, product, hour, julianDay = __isAList(
-        year, month, day, product, hour, julianDay=julianDay)
+    year, month, day, product, hour,channel, julianDay = __isAList(
+        year, month, day, product, hour,channel, julianDay=julianDay)
 
     ## for loop to all variable year (it's a list var)
     for i in year:
@@ -78,13 +78,11 @@ def ABI_Downloader(bucket, year, month, day, hour, product, channel):
                                             # Downloading the file with the boto3
                                             goes16.download_file(
                                                 object.key, path + filename,Callback=ProgressPercentage(filename,object.size))
-                                            print('\n')
                                     else:
                                     
                                         # Downloading the file with the boto3
                                         goes16.download_file(
                                             object.key, path + filename,Callback=ProgressPercentage(filename,object.size))
-                                        print('\n')
                 days += 1
 
     return 0
