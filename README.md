@@ -76,12 +76,6 @@ Below do the initialization for these variable in your firstexample.py :
 
 > hour='12'
 
-> month='03'
-
-> day='22'
-
-> hour='12'
-
 > product='ABI-L2-CMIPF'
 
 > channel='C13'
