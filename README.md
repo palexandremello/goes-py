@@ -30,7 +30,7 @@ But if you don't want to build the cloned repository, just use the pip on termin
 
  ### 3. Update the package:
  
-The goespy will have more new version in the future, so when this release comes. you need upgrade your package, so use this command on terminal. (new release 0.1.3v)
+The goespy will have more new version in the future, so when this release comes. you need upgrade your package, so use this command on terminal. (new release 0.2v)
 
  > **pip install --upgrade goespy** 
  
