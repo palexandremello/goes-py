@@ -43,6 +43,6 @@ from pathlib import Path
 __author__ = "Paulo Alexandre S. Mello"
 __email__ = "palexandremello@gmail.com"
 __date__ = "2018-03-22"
-__version__ = '0.1'
+__version__ = '0.2'
 
 utils.bannerDisplay(__version__)

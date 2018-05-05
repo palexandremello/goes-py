@@ -11,7 +11,7 @@ def createPathGoesData(bucket, year, month, day, product, hour, channel=None):
                                                                                                '''
     satGoesPath = bucket.partition('noaa-')[2]
 
-    home = str(Path.home())
+    home = checkVersion()
     if channel == None:
 
         if not os.path.exists("{0}/{1}/{2}/{3}/{4}/{5}/{6}/".format(
@@ -82,3 +82,20 @@ def checkSize(path, singleFile, singleSize):
             return True
         else:
             return False
+
+
+def checkVersion():
+## Function necessary to check if your python version is < 2.7 or > 2.7
+### if your python is more than 2.7 the function will default uses the pathlib function to get your home directory
+### but if you use the python version 2.7, so the function will uses the os.path to get your home directory
+    import sys
+    from pathlib import Path
+    from os.path import expanduser
+    home = ''
+    if (sys.hexversion <= 0x02060000):
+        home = str(Path.home())
+               
+    else:
+        home = expanduser("~")
+        
+    return home
