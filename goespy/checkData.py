@@ -4,24 +4,23 @@ def createPathGoesData(bucket, year, month, day, product, hour, channel=None):
     """Function used create a directory, with the calendar date the user give to function"""
 
     from goespy import os
-    from pathlib import Path
-
+    import errno
     pathReturn = ''
     '''that part will get your home directory and the Satellite bucket you're getting your dataset
                                                                                                '''
     satGoesPath = bucket.partition('noaa-')[2]
 
-    home = checkVersion()
+    home = setHome()
     if channel == None:
-
-        if not os.path.exists("{0}/{1}/{2}/{3}/{4}/{5}/{6}/".format(
-                home, satGoesPath, year, month, day, product, hour)):
-
+        ## the code will try create the directory where the GOES-data will be saved, if has a except error as existent directory
+        ## that error will be finish
+        try:
             os.makedirs(
-                "{0}/{1}/{2}/{3}/{4}/{5}/{6}/".format(
-                    home, satGoesPath, year, month, day, product, hour),
-                exist_ok=True)
-
+                "{0}/{1}/{2}/{3}/{4}/{5}/{6}/".format(home, satGoesPath, year, month, day, product, hour))
+        except OSError as e:
+            if e.errno != errno.EEXIST:
+                raise
+                
         pathReturn = "{0}/{1}/{2}/{3}/{4}/{5}/{6}/".format(
             home, satGoesPath, year, month, day, product, hour)
 
@@ -32,12 +31,13 @@ def createPathGoesData(bucket, year, month, day, product, hour, channel=None):
             pass
 
         else:
-
-            os.makedirs(
-                "{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/".format(
-                    home, satGoesPath, year, month, day, product, hour,
-                    channel),
-                exist_ok=True)
+            try:
+                os.makedirs(
+                    "{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/".format(
+                        home, satGoesPath, year, month, day, product, hour,channel))
+            except OSError as e:
+                if e.errno != errno.EEXIST:
+                    raise
 
         pathReturn = "{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/".format(
             home, satGoesPath, year, month, day, product, hour, channel)
@@ -83,19 +83,26 @@ def checkSize(path, singleFile, singleSize):
         else:
             return False
 
+def pythonVersion():
+## The function is necessary to check yout python version 
+# IF the your python is < or equal 2.7 so put a True bool
+## Else (python > 2.7) put a False bool 
+    import sys
+    if (sys.hexversion <= 34017264):
+        return True
+    else:
+        return False
 
-def checkVersion():
+def setHome():
 ## Function necessary to check if your python version is < 2.7 or > 2.7
 ### if your python is more than 2.7 the function will default uses the pathlib function to get your home directory
 ### but if you use the python version 2.7, so the function will uses the os.path to get your home directory
-    import sys
-    from pathlib import Path
     from os.path import expanduser
-    home = ''
-    if (sys.hexversion <= 0x02060000):
-        home = str(Path.home())
-               
+
+    if  pythonVersion():
+
+        return expanduser("~")
+
     else:
-        home = expanduser("~")
-        
-    return home
+        from pathlib import Path
+        return str(Path.home())        
