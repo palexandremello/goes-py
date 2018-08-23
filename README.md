@@ -1,9 +1,7 @@
 # goes-py 0.2.1v 
 
- It's a free Python package to acess and get the dataset from GOES satellite next generation on Amazon Web Service(AWS)
+ It's a Python package to acess and get the dataset from GOES satellite next generation on Amazon Web Service(AWS)
  
- For more details, look online documentation (soon)
-
 ## HOWTO-Install 
  
  ### 1. Source code:
@@ -110,5 +108,5 @@ After the download to finishes, check your home directory (**Linux and mac OS X 
 For the GLM use an especific example on the **examples/** in the source directory.
 
  ## Contributors: 
- Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin ( <a href="https://wp.ufpel.edu.br/cppmet/">CPMET</a>) for the place and computers necessary to work on this project 
+ Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin ( <a href="https://wp.ufpel.edu.br/cppmet/">CPMet</a>) for the place and computers necessary to work on this project 
 
