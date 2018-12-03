@@ -89,16 +89,6 @@ And run the script
 
 wait for download to complete (you can see the progress)
 
-
-Now, you can call the function, so write it on your **firstexample.py** after you initialized the variables above:
-> ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)
-
-And run the script 
-
-> python firstexample.py 
-
-wait for download to complete (you can see the progress)
-
 After the download to finishes, check your home directory (**Linux and mac OS X users**) and your dataset will be in a directory has the same name from the satellite used on bucket variable. In this case: **goes16**.
 
  ### 2. HOW TO get from GLM total lightning:
