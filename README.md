@@ -51,6 +51,7 @@ You will import the **ABI_Downloader** function, and the **ABI_Downloder** needs
 ```py
 ABI_Downloader(bucket,year,month,day,hour,product,channel)
 ```
+
 ```
 bucket: name of reposity from GOES on the Amazon Web Service (AWS)
 year: year string 
@@ -89,10 +90,12 @@ After the download to finishes, check your home directory (**Linux and mac OS X 
 
  ### 2. HOW TO get from GLM total lightning:
  
-> **from goespy import GLM_Downloader**
+```py
+from goespy import GLM_Downloader
+```
 
 For the GLM use an especific example on the **examples/** in the source directory.
 
  ## Contributors: 
- Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin ( <a href="https://wp.ufpel.edu.br/cppmet/">CPMet</a>) for the place and computers necessary to work on this project 
+ Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin (<a href="https://wp.ufpel.edu.br/cppmet/">CPMet</a>) for the place and computers necessary to work on this project 
 
