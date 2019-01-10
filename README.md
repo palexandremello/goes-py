@@ -83,7 +83,7 @@ ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)
 And run the script 
 
 ```
-** $ python firstexample.py  **
+**python firstexample.py**
 ```
 
 wait for download to complete (you can see the progress)
