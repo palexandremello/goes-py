@@ -42,29 +42,28 @@ The goespy will have more new version in the future, so when this release comes.
  
 First open a file with the filename **firstexample.py** and put the next command on header's script.
 
-```from goespy.Downloader import ABI_Downloader```
+```py
+from goespy.Downloader import ABI_Downloader
+```
 
 You will import the **ABI_Downloader** function, and the **ABI_Downloder** needs 7 arguments to be used:
 
-```ABI_Downloader(bucket,year,month,day,hour,product,channel)```
-
->bucket: name of reposity from GOES on the Amazon Web Service (AWS)
-
->year: year string 
-
->month: month string 
-
->day: day string
-
->hour: hour string, but it's need be UTC coordinate not local time
-
->product: "ABI-sensors" for this example we will use FullDisk L2
-
->channel: channels of your choose, can be C01 at C16
-
+```py
+ABI_Downloader(bucket,year,month,day,hour,product,channel)
+```
+```
+bucket: name of reposity from GOES on the Amazon Web Service (AWS)
+year: year string 
+month: month string 
+day: day string
+hour: hour string, but it's need be UTC coordinate not local time
+product: "ABI-sensors" for this example we will use FullDisk L2
+channel: channels of your choose, can be C01 at C16
+```
 Below do the initialization for these variable in your firstexample.py :
 
-```bucket = 'noaa-goes16'
+```py
+bucket = 'noaa-goes16'
 year='2018'
 month='03'
 day='22'
@@ -75,7 +74,9 @@ channel='C13'
 
 Now, you can call the function, so write it on your **firstexample.py**:
 
-```ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)```
+```py
+ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)
+```
 
 
 And run the script 
