@@ -7,17 +7,13 @@
  ### 1. Source code:
  
  If you want to build this package, just clone this repository:
+```bash
+$ git clone https://github.com/palexandremello/goes-py.git
 
- >**git clone https://github.com/palexandremello/goes-py.git**
+$ cd goes-py
 
- Go to folder:
-
->**cd goes-py** 
-
- And install manually
-
->**python setup.py install**
-
+$ python setup.py install**
+```
 But if you don't want to build the cloned repository, just use the pip on terminal.
 
  ### 2. Pip Install: 
