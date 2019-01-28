@@ -12,22 +12,22 @@ $ git clone https://github.com/palexandremello/goes-py.git
 
 $ cd goes-py
 
-$ python setup.py install**
+$ python setup.py install
 ```
 But if you don't want to build the cloned repository, just use the pip on terminal.
 
  ### 2. Pip Install: 
  
   Acess a terminal and use the command **pip**:
-  
-  > **pip install goespy**
-
+  ```bash
+  $ pip install goespy
+  ```
  ### 3. Update the package:
  
 The goespy will have more new version in the future, so when this release comes. you need upgrade your package, so use this command on terminal. (new release 0.2v)
-
- > **pip install --upgrade goespy** 
- 
+ ```bash
+ $ pip install --upgrade goespy 
+ ```
  Or if you want build again the new source code
  
  ## Examples how to use:
