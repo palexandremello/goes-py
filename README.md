@@ -1,6 +1,7 @@
-# goes-py 0.2.1v 
+# goes-py
 
-[![Downloads](https://pepy.tech/badge/goespy)](https://pepy.tech/project/goespy)
+[![Downloads](https://pepy.tech/badge/goespy)](https://pepy.tech/project/goespy) 
+[![Version](https://img.shields.io/pypi/v/goespy.svg)](https://pypi.org/project/goespy/)
 
  It's a Python package to acess and get the dataset from GOES satellite next generation on Amazon Web Service(AWS)
  
