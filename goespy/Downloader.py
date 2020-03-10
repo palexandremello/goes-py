@@ -88,15 +88,18 @@ def ABI_Downloader(bucket, year, month, day, hour, product, channel):
     return 0
 
 
-def GLM_Downloader(bucket, year, month, day, hour):
-    """        GLM_Downloader(bucket,year,month,day,hour): All these variables are strings.
-    The first argument is the Bucket it's the reposity where has the contents from the satellite, example:  
+def Other_Products_Downloader(bucket, year, month, day, hour, product='GLM-L2-LCFA'):
+    """        Other_Products_Downloader (bucket,year,month,day,hour,product): All these variables are strings.
+    The first argument is the Bucket it's the repository where has the contents from the satellite, example:
 
     Bucket='noaa-goes16'
-    year  = type List for Year date: example = ['2017','2018'] 
+    year  = type List for Year date: example = ['2017','2018']
     month = type List for month date: example = ['03','04']
     day   = type List for day date: example = ['10','20','30']
-    hour   = type List for hour need be UTC coordinate time date: example = ['06','12','18']"""
+    hour   = type List for hour need be UTC coordinate time date: example = ['06','12','18']
+    product = by default global Lightning mapper but other products can be donwloaded
+             according to https://docs.opendata.aws/noaa-goes16/cics-readme.html. Example = ABI-L2-ACHTF
+            Cloud Top Temperature Full Disk"""
 
     from goespy.utils import __isAList
     from goespy.utils import ProgressPercentage
@@ -108,7 +111,6 @@ def GLM_Downloader(bucket, year, month, day, hour):
         's3',
         config=botocore.client.Config(signature_version=botocore.UNSIGNED))
     goes16 = s3.Bucket(bucket)
-    product = 'GLM-L2-LCFA'
     days = 00
     year, month, day, product, hour, julianDay = __isAList(
         year, month, day, product, hour, julianDay=julianDay)
