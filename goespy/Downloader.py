@@ -2,11 +2,12 @@
      from the GOES satellite """
 
 
-def ABI_Downloader(bucket, year, month, day, hour, product, channel):
-    """        ABI_Downloader(bucket,year,month,day,hour,product,channel): All these variables are strings.
+def ABI_Downloader(home, bucket, year, month, day, hour, product, channel):
+    """        ABI_Downloader(home, bucket,year,month,day,hour,product,channel): All these variables are strings.
     The first argument is the Bucket it's the reposity where has the contents from the satellite, example:  
     
-    Bucket='noaa-goes16'
+    home  = string, set directory to download ABI products
+    bucket='noaa-goes16'
     year  = can be List or a single string to Year date: example = ['2017','2018'] or "2018
     month = can be List or a single string to month date: example = ['03','04'] or "03"
     day   = can be List or a single string for day date: example = ['10','20','30'] or "20"
@@ -62,7 +63,7 @@ def ABI_Downloader(bucket, year, month, day, hour, product, channel):
 
                                #     creating the new directory where we will put the dataset from the bucket
                                    
-                                    path = checkData.createPathGoesData(bucket,
+                                    path = checkData.createPathGoesData(home, bucket,
                                         i, mth, day[days], prod, nindex, ch)
                                     
                                     #checking if the file exist on the new directory and your size
@@ -88,11 +89,12 @@ def ABI_Downloader(bucket, year, month, day, hour, product, channel):
     return 0
 
 
-def GLM_Downloader(bucket, year, month, day, hour):
-    """        GLM_Downloader(bucket,year,month,day,hour): All these variables are strings.
+def GLM_Downloader(home, bucket, year, month, day, hour):
+    """        GLM_Downloader(home, bucket,year,month,day,hour): All these variables are strings.
     The first argument is the Bucket it's the reposity where has the contents from the satellite, example:  
 
-    Bucket='noaa-goes16'
+    home  = string, set directory to download GLM products
+    bucket='noaa-goes16'
     year  = type List for Year date: example = ['2017','2018'] 
     month = type List for month date: example = ['03','04']
     day   = type List for day date: example = ['10','20','30']
@@ -132,7 +134,7 @@ def GLM_Downloader(bucket, year, month, day, hour):
                             filename = object.key.rsplit('/', 1)[1]
                             ## creating the directory where will put the dataset from the bucket
                             pathFile = checkData.createPathGoesData(
-                                bucket, i, mth, day[days], prod, nindex)
+                                home, bucket, i, mth, day[days], prod, nindex)
 
                             # checking if the data exist and your size!!!
                             if checkData.checkFiles(pathFile, filename):

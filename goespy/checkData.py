@@ -1,4 +1,4 @@
-def createPathGoesData(bucket, year, month, day, product, hour, channel=None):
+def createPathGoesData(home, bucket, year, month, day, product, hour, channel=None):
     """ The modules reponsive about the has files on the new directory created with the createPathGoesData,
     and if has a same File, check if are broken"""
     """Function used create a directory, with the calendar date the user give to function"""
@@ -10,7 +10,6 @@ def createPathGoesData(bucket, year, month, day, product, hour, channel=None):
                                                                                                '''
     satGoesPath = bucket.partition('noaa-')[2]
 
-    home = setHome()
     if channel == None:
         ## the code will try create the directory where the GOES-data will be saved, if has a except error as existent directory
         ## that error will be finish
