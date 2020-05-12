@@ -45,13 +45,14 @@ First open a file with the filename **firstexample.py** and put the next command
 from goespy.Downloader import ABI_Downloader
 ```
 
-You will import the **ABI_Downloader** function, and the **ABI_Downloder** needs 7 arguments to be used:
+You will import the **ABI_Downloader** function, and the **ABI_Downloder** needs 8 arguments to be used:
 
 ```py
-ABI_Downloader(bucket,year,month,day,hour,product,channel)
+ABI_Downloader(destination_path, bucket,year,month,day,hour,product,channel)
 ```
 
 ```**
+destination_path: path where you want to save your goes satellite data
 bucket: name of reposity from GOES on the Amazon Web Service (AWS)
 year: year string 
 month: month string 
@@ -63,6 +64,7 @@ channel: channels of your choose, can be C01 at C16**
 Below do the initialization for these variable in your firstexample.py :
 
 ```py
+destination_path = '/home/paulo/Downloads/goes_data/'
 bucket = 'noaa-goes16'
 year='2018'
 month='03'
@@ -75,7 +77,7 @@ channel='C13'
 Now, you can call the function, so write it on your **firstexample.py**:
 
 ```py
-ABI = ABI_Downloader(bucket,year,month,day,hour,product,channel)
+ABI = ABI_Downloader(destination_path, bucket,year,month,day,hour,product,channel)
 ```
 
 
@@ -85,7 +87,7 @@ And run the script
 python firstexample.py
 ```
 
-After the download to be finishes, check your home directory (**Linux and mac OS X users**) and your dataset will be in a directory has the same name from the satellite used on bucket variable. In this case: **goes16**.
+After the download to be finishes, check your destination path (**Linux and mac OS X users**) and your dataset will be in a directory with the same name from the satellite used on bucket variable. In this case: **goes16**.
 
  ### 2. HOW TO get from GLM total lightning:
  
