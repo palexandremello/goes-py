@@ -3,13 +3,14 @@
 [![Downloads](https://pepy.tech/badge/goespy)](https://pepy.tech/project/goespy) 
 [![Version](https://img.shields.io/pypi/v/goespy.svg)](https://pypi.org/project/goespy/)
 
- It's a Python package to acess and get the dataset from GOES satellite next generation on Amazon Web Service(AWS)
+ This Python package provides functions to download [GOES (GOES-16 & GOES-17) products from Amazon Web Services (AWS)](https://registry.opendata.aws/noaa-goes/).
  
-## HOWTO-Install 
+## Installing goes-py
  
- ### 1. Source code:
+ ### Option 1: Installing from source code:
  
  If you want to build this package, just clone this repository:
+ 
 ```bash
 $ git clone https://github.com/palexandremello/goes-py.git
 
@@ -17,27 +18,35 @@ $ cd goes-py
 
 $ python setup.py install
 ```
-But if you don't want to build the cloned repository, just use the pip on terminal.
 
- ### 2. Pip Install: 
+ ### Option 2: Installing with pip: 
  
-  Acess a terminal and use the command **pip**:
+ If you don't want to build from the cloned source code repository, just use pip in a terminal.
+ 
+  Access a terminal and use the command **pip**:
   ```bash
   $ pip install goespy
   ```
- ### 3. Update the package:
+  
+## Updating goes-py
+
+ ### Option 1: Install again from source code:
  
-The goespy will have more new version in the future, so when this release comes. you need upgrade your package, so use this command on terminal. (new release 0.2v)
+ Build the package again from the new version of the source code to update goes-py.
+
+ ### Option 2: Update with pip:
+ 
+ The goes-py package will have new versions in the future, you will need upgrade your package to use these future releases. Use this command in a terminal to update goes-py. (new release 0.2v)
+
  ```bash
  $ pip install --upgrade goespy 
  ```
- Or if you want build again the new source code
  
- ## Examples how to use:
+## Examples how to use:
 
- This package has two main function, can be used to get dataset from GOES:
+ This package has two main functions to download GOES products from AWS:
 
- ### 1. HOW TO get from ABI-sensors:
+ ### 1. HOW TO download ABI products:
  
 First open a file with the filename **firstexample.py** and put the next command on header's script.
 
@@ -59,7 +68,7 @@ month: month string
 day: day string
 hour: hour string, but it's need be UTC coordinate not local time
 product: "ABI-sensors" for this example we will use FullDisk L2
-channel: channels of your choose, can be C01 at C16**
+channel: Required only for "ABI-L1b-Rad" and "ABI-L2-CMIP" products (can be C01 through C16). Channel is ignored for other ABI products.
 ```
 Below do the initialization for these variable in your firstexample.py :
 
@@ -89,14 +98,17 @@ python firstexample.py
 
 After the download to be finishes, check your destination path (**Linux and mac OS X users**) and your dataset will be in a directory with the same name from the satellite used on bucket variable. In this case: **goes16**.
 
- ### 2. HOW TO get from GLM total lightning:
+ ### 2. HOW TO download GLM total lightning product:
  
 ```py
 from goespy import GLM_Downloader
 ```
 
-For the GLM use an especific example on the **examples/** in the source directory.
+For the GLM use see the example in **examples/** in the source directory.
 
  ## Contributors: 
- Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin (<a href="https://wp.ufpel.edu.br/cppmet/">CPMet</a>) for the place and computers necessary to work on this project 
+ 
+ * [Paulo Alexandre Mello](https://github.com/palexandremello)
+ * Centro de Pesquisas e Previsões Meteorológicas Prof. Darci Pegoraro Casarin (<a href="https://wp.ufpel.edu.br/cppmet/">CPMet</a>) for the place and computers necessary to work on this project 
+ * [Steven Pestana](https://github.com/spestana/)
 

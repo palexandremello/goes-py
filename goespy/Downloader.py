@@ -4,7 +4,7 @@
 
 def ABI_Downloader(home, bucket, year, month, day, hour, product, channel):
     """        ABI_Downloader(home, bucket,year,month,day,hour,product,channel): All these variables are strings.
-    The first argument is the Bucket it's the reposity where has the contents from the satellite, example:  
+    The second argument is the Bucket it's the reposity where has the contents from the satellite, example:  
     
     home  = string, set directory to download ABI products
     bucket='noaa-goes16'
@@ -13,7 +13,7 @@ def ABI_Downloader(home, bucket, year, month, day, hour, product, channel):
     day   = can be List or a single string for day date: example = ['10','20','30'] or "20"
     hour   = can be List or a single string to hour, and need be UTC coordinate time date: example = ['06','12','18'] or "06"
     product = can be a List or a single string for ABI sensors products from GOES satellite next-generation example: ["ABI-L2-CMIPF"] or "ABI-L1b-RadF"
-    channel = can be a List or a single string for the channels from ABI sensors. Example = ['01','02'] or "13"
+    channel = Required only for "ABI-L1b-Rad" and "ABI-L2-CMIP" products. Can be a List or a single string for the channels from ABI sensors. Example = ['01','02'] or "13" (channel is ignored for other ABI products)
     """
     from goespy.utils import __isAList
     from goespy.utils import ProgressPercentage
@@ -32,7 +32,7 @@ def ABI_Downloader(home, bucket, year, month, day, hour, product, channel):
         year, month, day, product, hour,channel, julianDay=julianDay)
 
     ## for loop to all variable year (it's a list var)
-    for i in year:
+    for y in year:
 
         ## same think above
         for mth in month:
@@ -51,39 +51,63 @@ def ABI_Downloader(home, bucket, year, month, day, hour, product, channel):
                         objs = goes16.objects.filter(
                             Delimiter='/',
                             Prefix="{0}/{1}/{2}/{3}/".format(
-                                prod, i, julianDay[days], nindex))
-                        for object in objs:
+                                prod, y, julianDay[days], nindex))
+                        
+                        for obj in objs:
                             ## the keys it's a "path"+"filename" in the bucket, solution
                             ### we need only the filename, that's why used the rsplit function.
-                            filename = object.key.rsplit('/', 1)[1]
-                            for ch in channel:
-                                ## when the filename has the same Channel from the user channel variable
-                                ## call the function from download, but before it's done somes check files and directory
-                                if filename.partition(ch)[1] == ch:
+                            
+                            filename = obj.key.rsplit('/', 1)[1]
 
-                               #     creating the new directory where we will put the dataset from the bucket
+                            if ( (prod[:-1] == "ABI-L1b-Rad") or (prod[-1] == "ABI-L2-CMIP") ):
+                                for ch in channel:
+                                    ## when the filename has the same Channel from the user channel variable
+                                    ## call the function from download, but before it's done somes check files and directory
+                                    if filename.partition(ch)[1] == ch:
+
+                                        # creating the new directory where we will put the dataset from the bucket
                                    
-                                    path = checkData.createPathGoesData(home, bucket,
-                                        i, mth, day[days], prod, nindex, ch)
-                                    
-                                    #checking if the file exist on the new directory and your size
-                                    if checkData.checkFiles(path, filename):
+                                        path = checkData.createPathGoesData(home, bucket,
+                                            y, mth, day[days], prod, nindex, ch)
                                         
-                                        if checkData.checkSize(
-                                                path, filename, object.size):
-                                        
-                                            pass
-                                        
-                                        else:
+                                        #checking if the file exist on the new directory and your size
+                                        if checkData.checkFiles(path, filename):
+                                            
+                                            if checkData.checkSize(
+                                                    path, filename, obj.size):
+                                                pass
+                                            
+                                            else:
 
+                                                # Downloading the file with the boto3
+                                                goes16.download_file(
+                                                    obj.key, path + filename,Callback=ProgressPercentage(filename,obj.size))
+                                        else:
+                                        
                                             # Downloading the file with the boto3
                                             goes16.download_file(
-                                                object.key, path + filename,Callback=ProgressPercentage(filename,object.size))
-                                    else:
+                                                obj.key, path + filename,Callback=ProgressPercentage(filename,obj.size))
+                            else:
+                                # creating the new directory where we will put the dataset from the bucket
+                                   
+                                path = checkData.createPathGoesData(home, bucket,
+                                    y, mth, day[days], prod, nindex)
+                                
+                                #checking if the file exist on the new directory and your size
+                                if checkData.checkFiles(path, filename):
                                     
+                                    if checkData.checkSize(
+                                            path, filename, obj.size):
+                                        pass
+                                    
+                                    else:
+
                                         # Downloading the file with the boto3
-                                        goes16.download_file(
-                                            object.key, path + filename,Callback=ProgressPercentage(filename,object.size))
+                                        goes16.download_file(obj.key, path + filename,Callback=ProgressPercentage(filename,obj.size))
+                                else:
+                                
+                                    # Downloading the file with the boto3
+                                    goes16.download_file(obj.key, path + filename,Callback=ProgressPercentage(filename,obj.size))
                 days += 1
 
     return 0
@@ -115,7 +139,7 @@ def GLM_Downloader(home, bucket, year, month, day, hour):
     year, month, day, product, hour, julianDay = __isAList(
         year, month, day, product, hour, julianDay=julianDay)
 
-    for i in year:
+    for y in year:
         for mth in month:
             while days <= len(day) - 1 and days <= len(julianDay) - 1:
                 for prod in product:
@@ -126,31 +150,31 @@ def GLM_Downloader(home, bucket, year, month, day, hour):
                         objs = goes16.objects.filter(
                             Delimiter='/',
                             Prefix="{0}/{1}/{2}/{3}/".format(
-                                prod, i, julianDay[days], nindex))
+                                prod, y, julianDay[days], nindex))
 
-                        #print("{0}/{1}/{2}/{3}/".format(prod,i,julianDay[days],nindex))
-                        for object in objs:
+                        #print("{0}/{1}/{2}/{3}/".format(prod,y,julianDay[days],nindex))
+                        for obj in objs:
 
-                            filename = object.key.rsplit('/', 1)[1]
+                            filename = obj.key.rsplit('/', 1)[1]
                             ## creating the directory where will put the dataset from the bucket
                             pathFile = checkData.createPathGoesData(
-                                home, bucket, i, mth, day[days], prod, nindex)
+                                home, bucket, y, mth, day[days], prod, nindex)
 
                             # checking if the data exist and your size!!!
                             if checkData.checkFiles(pathFile, filename):
                                 if checkData.checkSize(pathFile, filename,
-                                                       object.size):
+                                                       obj.size):
                                     pass
 
                                 else:
                                                                         
                                     # Downloading the file with the boto3
-                                    goes16.download_file(object.key,pathFile+filename,Callback=ProgressPercentage(filename,object.size))
+                                    goes16.download_file(obj.key,pathFile+filename,Callback=ProgressPercentage(filename,obj.size))
                                     print('\n')
                             else:
                                 
                                 # Downloading the file with the boto3
-                                goes16.download_file(object.key,pathFile+filename,Callback=ProgressPercentage(filename,object.size))
+                                goes16.download_file(obj.key,pathFile+filename,Callback=ProgressPercentage(filename,obj.size))
                                 print('\n')
 
                 days += 1
