@@ -1,0 +1,22 @@
+repos:
+- repo: https://github.com/ambv/black
+  rev: stable
+  hooks:
+  - id: black
+    language_version: python3.8
+    stages: [commit]
+    
+- repo: https://gitlab.com/pycqa/flake8
+  rev: 3.7.9
+  hooks:
+  - id: flake8
+    stages: [commit]
+
+- repo: local
+  hooks:
+  - id: requeriments
+    name: requeriments
+    entry: bash -c 'venv/bin/pip3 freeze > requeriments.txt; git add requeriments.txt'
+    language: system
+    pass_filenames: false
+    stages: [commit]
