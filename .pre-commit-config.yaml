@@ -17,11 +17,11 @@ repos:
    - id: pytest
      name: pytest
      language: system
-     entry: pytest -v
+     entry: pytest -vv
      always_run: true
      pass_filenames: false
      stages: [commit]
-     
+
 - repo: local
   hooks:
   - id: requeriments
