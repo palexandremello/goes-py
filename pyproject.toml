@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "goes-py"
+version = "0.1.0"
+description = ""
+authors = ["Paulo Alexandre Mello <palexandremello@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.21.0"
+flake8 = "^6.0.0"
+black = {version = "^22.12.0", allow-prereleases = true}
+pytest-cov = "^4.0.0"
+mypy = "^0.991"
+isort = "^5.11.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 79
+
+[tool.black]
+line-length = 79
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
