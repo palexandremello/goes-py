@@ -19,7 +19,7 @@ def createPathGoesData(home, bucket, year, month, day, product, hour, channel=No
         except OSError as e:
             if e.errno != errno.EEXIST:
                 raise
-                
+
         pathReturn = "{0}/{1}/{2}/{3}/{4}/{5}/{6}/".format(
             home, satGoesPath, year, month, day, product, hour)
 
@@ -46,10 +46,10 @@ def createPathGoesData(home, bucket, year, month, day, product, hour, channel=No
 
 def checkFiles(path, singleFile):
     """   checkFiles(path,singleFile): That function will check if has files on the recent created path with the
-                                createPathGoesData function   
+                                createPathGoesData function
                     The variable path is created with the createPathGoesData
                 The singleFile is the filename from the data in the bucket 'noaa-goes16'
-                     and will check the singleFile exists on the created path 
+                     and will check the singleFile exists on the created path
     """
     from goespy import os
     if os.path.isfile("{0}/{1}".format(path, singleFile)):
@@ -63,7 +63,7 @@ def checkFiles(path, singleFile):
 
 
 def checkSize(path, singleFile, singleSize):
-    """  
+    """
               That function will check if the file on the path created with the
                         createPathGoesData function is the same on the bucket.
                 The variable path is create with the createPathGoesData
@@ -73,7 +73,7 @@ def checkSize(path, singleFile, singleSize):
                           equal to the original file on the bucket.
 
     """
-    
+
     from goespy import os
 
     if checkFiles(path, singleFile):
@@ -83,9 +83,9 @@ def checkSize(path, singleFile, singleSize):
             return False
 
 def pythonVersion():
-## The function is necessary to check yout python version 
+## The function is necessary to check yout python version
 # IF the your python is < or equal 2.7 so put a True bool
-## Else (python > 2.7) put a False bool 
+## Else (python > 2.7) put a False bool
     import sys
     if (sys.hexversion <= 34017264):
         return True
@@ -104,4 +104,4 @@ def setHome():
 
     else:
         from pathlib import Path
-        return str(Path.home())        
+        return str(Path.home())

@@ -4,7 +4,7 @@
 
 def checkFiles(path, singleFile):
     """   checkFiles(path,singleFile): That function will check if exist the file on the path create with the
-                                createPathGoesData function   
+                                createPathGoesData function
                     The variable path is create with the createPathGoesData
                 The singleFile is the filename from the data in the bucket 'noaa-goes16'
             and will check if the singleFile in the path create in the createPathGoesData

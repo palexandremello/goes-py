@@ -3,13 +3,13 @@
 from goespy.Downloader import ABI_Downloader ## goespy.Downloader it's where the main function
                                                      ## to download the products by GOES in the AWS
                                                      ## in the goespy.Downloader we have
-                                                     # ABI_Downloader = ABI-Sensors 
+                                                     # ABI_Downloader = ABI-Sensors
                                                      # GLM_Downloader = Discharge eletric product
                                                      # So if you need the GLM_Downloader, just change
-                                                     # the ABI_Downloader to GLM_Downloader or import both 
+                                                     # the ABI_Downloader to GLM_Downloader or import both
                                                      # example: from goespy.Downloader import GLM_Downloader
 ### to use ABI_Downloader, you need 7 arguments:
-### to see more information about ABI_Downloder, use help(ABI_Downloader) 
+### to see more information about ABI_Downloder, use help(ABI_Downloader)
 
 
 ## If you want to get the dataset at real-time from the GOES in the AWS, just use this library
@@ -19,14 +19,14 @@ import datetime as dt ## More information about the datetime library acesse this
 
 ### Getting the current date (in UTC coordinate)
 ## All these variables need be string
-utcDateTime = dt.datetime.utcnow() 
+utcDateTime = dt.datetime.utcnow()
 ## current year
 year = utcDateTime.strftime("%Y")
 # current month
 month = utcDateTime.strftime("%m")
 ## current day
 day = utcDateTime.strftime("%d")
-## current hour in UTC 
+## current hour in UTC
 hour = utcDateTime.strftime("%H")
 ##Choose a channel from your preference (can be C01-C16)
 channel = ["C13"]

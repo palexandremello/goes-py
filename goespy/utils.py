@@ -1,4 +1,4 @@
-""" Utilites uses on the goespy 
+""" Utilites uses on the goespy
 
 """
 
@@ -13,21 +13,21 @@ def daytoJulian(year,month,day):
                 julian = str(datetime.datetime.strptime('{0}-{1}-{2}'.format(year[i],month[j], day[k]),
                 '%Y-%m-%d').timetuple().tm_yday).zfill(3)
                 julianDay.append(julian)
-                
+
                 k += 1
             j+= 1
         i+=1
-    
-    
+
+
     return julianDay
 
 
-    
+
 def __isAList(year, month, day, product, hour, channel=None, julianDay=None):
-    """ All these variables are strings. This function will "convert" every single string on a List of string, 
+    """ All these variables are strings. This function will "convert" every single string on a List of string,
     to be use in the Foor loops: If all the arguments are List of string, the function will not convert to List.
-        The first argument is the Bucket it's the reposity where has the contents from the satellite, example:  
-    
+        The first argument is the Bucket it's the reposity where has the contents from the satellite, example:
+
     Bucket='noaa-goes16'
     year  =  single string to Year date: example =  "2018" -> ['2018']
     month =  single string to month date: example = "03" -> ['03']
@@ -50,7 +50,7 @@ def __isAList(year, month, day, product, hour, channel=None, julianDay=None):
 
     if not isinstance(product, (list, )):
         product = [product]
-    
+
     if not isinstance(julianDay, (list, )):
         julianDay = daytoJulian(year,month,day)
     if channel  == None:
@@ -58,7 +58,7 @@ def __isAList(year, month, day, product, hour, channel=None, julianDay=None):
     else:
         if not isinstance(channel, (list, )):
             channel = [channel]
-        
+
         return year, month, day,product, hour, channel, julianDay
 
 class ProgressPercentage(object):
@@ -80,14 +80,14 @@ class ProgressPercentage(object):
                                                                            self._seen_so_far/1e6, self._size/1e6))
             #sys.stdout.write("\r%s  %s MB | %s MB  (%.2f%%)" % (self._filename, str(float(self._seen_so_far/1e6)),
             #                                 str(float(self._size/1e6)), percentage) )
-            
-            
+
+
             sys.stdout.flush()
 
 
 def bannerDisplay(version):
     text='goes-py'
-    ch='=' 
+    ch='='
     length=90
     spaced_text = ' %s ' % text
     banner = spaced_text.center(length, ch)

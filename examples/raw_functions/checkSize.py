@@ -3,7 +3,7 @@
 
 
 def checkSize(path, singleFile, singleSize):
-    """  
+    """
               That function will check if the file on the path created with the
                         createPathGoesData function is the same on the bucket.
                 The variable path is create with the createPathGoesData

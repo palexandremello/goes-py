@@ -2,8 +2,8 @@
              This function will "convert" every single string on a List of string, to be use in the Foor loops:
                     If all the arguments are List of string, the function will not convert to List.
 
-        The first argument is the Bucket it's the reposity where has the contents from the satellite, example:  
-    
+        The first argument is the Bucket it's the reposity where has the contents from the satellite, example:
+
     Bucket='noaa-goes16'
     year  =  single string to Year date: example =  "2018" -> ['2018']
     month =  single string to month date: example = "03" -> ['03']

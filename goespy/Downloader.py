@@ -4,8 +4,8 @@
 
 def ABI_Downloader(home, bucket, year, month, day, hour, product, channel):
     """        ABI_Downloader(home, bucket,year,month,day,hour,product,channel): All these variables are strings.
-    The second argument is the Bucket it's the reposity where has the contents from the satellite, example:  
-    
+    The second argument is the Bucket it's the reposity where has the contents from the satellite, example:
+
     home  = string, set directory to download ABI products
     bucket='noaa-goes16'
     year  = can be List or a single string to Year date: example = ['2017','2018'] or "2018
@@ -52,11 +52,11 @@ def ABI_Downloader(home, bucket, year, month, day, hour, product, channel):
                             Delimiter='/',
                             Prefix="{0}/{1}/{2}/{3}/".format(
                                 prod, y, julianDay[days], nindex))
-                        
+
                         for obj in objs:
                             ## the keys it's a "path"+"filename" in the bucket, solution
                             ### we need only the filename, that's why used the rsplit function.
-                            
+
                             filename = obj.key.rsplit('/', 1)[1]
 
                             if ( (prod[:-1] == "ABI-L1b-Rad") or (prod[-1] == "ABI-L2-CMIP") ):
@@ -66,46 +66,46 @@ def ABI_Downloader(home, bucket, year, month, day, hour, product, channel):
                                     if filename.partition(ch)[1] == ch:
 
                                         # creating the new directory where we will put the dataset from the bucket
-                                   
+
                                         path = checkData.createPathGoesData(home, bucket,
                                             y, mth, day[days], prod, nindex, ch)
-                                        
+
                                         #checking if the file exist on the new directory and your size
                                         if checkData.checkFiles(path, filename):
-                                            
+
                                             if checkData.checkSize(
                                                     path, filename, obj.size):
                                                 pass
-                                            
+
                                             else:
 
                                                 # Downloading the file with the boto3
                                                 goes16.download_file(
                                                     obj.key, path + filename,Callback=ProgressPercentage(filename,obj.size))
                                         else:
-                                        
+
                                             # Downloading the file with the boto3
                                             goes16.download_file(
                                                 obj.key, path + filename,Callback=ProgressPercentage(filename,obj.size))
                             else:
                                 # creating the new directory where we will put the dataset from the bucket
-                                   
+
                                 path = checkData.createPathGoesData(home, bucket,
                                     y, mth, day[days], prod, nindex)
-                                
+
                                 #checking if the file exist on the new directory and your size
                                 if checkData.checkFiles(path, filename):
-                                    
+
                                     if checkData.checkSize(
                                             path, filename, obj.size):
                                         pass
-                                    
+
                                     else:
 
                                         # Downloading the file with the boto3
                                         goes16.download_file(obj.key, path + filename,Callback=ProgressPercentage(filename,obj.size))
                                 else:
-                                
+
                                     # Downloading the file with the boto3
                                     goes16.download_file(obj.key, path + filename,Callback=ProgressPercentage(filename,obj.size))
                 days += 1
@@ -115,11 +115,11 @@ def ABI_Downloader(home, bucket, year, month, day, hour, product, channel):
 
 def GLM_Downloader(home, bucket, year, month, day, hour):
     """        GLM_Downloader(home, bucket,year,month,day,hour): All these variables are strings.
-    The first argument is the Bucket it's the reposity where has the contents from the satellite, example:  
+    The first argument is the Bucket it's the reposity where has the contents from the satellite, example:
 
     home  = string, set directory to download GLM products
     bucket='noaa-goes16'
-    year  = type List for Year date: example = ['2017','2018'] 
+    year  = type List for Year date: example = ['2017','2018']
     month = type List for month date: example = ['03','04']
     day   = type List for day date: example = ['10','20','30']
     hour   = type List for hour need be UTC coordinate time date: example = ['06','12','18']"""
@@ -167,12 +167,12 @@ def GLM_Downloader(home, bucket, year, month, day, hour):
                                     pass
 
                                 else:
-                                                                        
+
                                     # Downloading the file with the boto3
                                     goes16.download_file(obj.key,pathFile+filename,Callback=ProgressPercentage(filename,obj.size))
                                     print('\n')
                             else:
-                                
+
                                 # Downloading the file with the boto3
                                 goes16.download_file(obj.key,pathFile+filename,Callback=ProgressPercentage(filename,obj.size))
                                 print('\n')

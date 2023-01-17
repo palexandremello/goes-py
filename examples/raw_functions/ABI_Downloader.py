@@ -1,6 +1,6 @@
 """        ABI_Downloader(bucket,year,month,day,hour,product,channel): All these variables are strings.
-    The first argument is the Bucket it's the reposity where has the contents from the satellite, example:  
-    
+    The first argument is the Bucket it's the reposity where has the contents from the satellite, example:
+
     Bucket='noaa-goes16'
     year  = can be List or a single string to Year date: example = ['2017','2018'] or "2018
     month = can be List or a single string to month date: example = ['03','04'] or "03"

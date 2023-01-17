@@ -12,4 +12,3 @@ setup(
     packages=['goespy'],
     install_requires=['boto3','botocore','pathlib'],
     zip_safe=False)
-
