@@ -59,7 +59,7 @@ def ABI_Downloader(home, bucket, year, month, day, hour, product, channel):
                             
                             filename = obj.key.rsplit('/', 1)[1]
 
-                            if ( (prod[:-1] == "ABI-L1b-Rad") or (prod[-1] == "ABI-L2-CMIP") ):
+                            if ( (prod[:-1] == "ABI-L1b-Rad") or (prod[:-1] == "ABI-L2-CMIP") ):
                                 for ch in channel:
                                     ## when the filename has the same Channel from the user channel variable
                                     ## call the function from download, but before it's done somes check files and directory
