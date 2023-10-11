@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "goes-py"
+version = "1.0.0"
+description = "a python lib can be useful to retrieve GOES satellite dataset on AWS Bucket"
+authors = ["Paulo Alexandre Mello <palexandremello@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
